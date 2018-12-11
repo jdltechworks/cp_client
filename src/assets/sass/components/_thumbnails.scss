@@ -1,0 +1,161 @@
+//---------------------------------------------------------//
+// Thumbnails
+//---------------------------------------------------------// 
+
+
+.thumbnail {
+	padding: rem(0);
+	position: relative;
+	font-size: rem(14);
+	border: none;
+	background-color: transparent;
+	.thumbnail-desc {
+		padding: rem(0 15 $grid-gutter-width);
+		font-weight: 500;
+		width: 100%;
+		background: #fff;
+		z-index: 11;
+		bottom: 0;
+	}
+	p {
+		line-height: 1.4;
+		span {
+			display: block;
+		}
+		&:last-child {
+			margin-bottom: 0;
+		}
+		&.right {
+			float: right
+		}
+	}
+	.item-title {
+		color: #424242;
+	}
+	.item-num {
+		color: #95908f;
+	}
+}
+
+
+.project-list.products{
+	.col-sm-4 {
+		.imageloader {
+			display: block;
+	    width: 100%;
+	    position: relative;
+	    height: 0;
+	    padding: 100% 0 0 0;
+	    overflow: hidden;
+	    background: #fff;
+	     img {
+	      position: absolute;
+	      display: block;
+	      left: 0;
+	      right: 0;
+	      top: 0;
+	      bottom: 0;
+	      margin: auto;
+	      max-width: 100%;
+	      max-height: 100%;
+	    }
+	  }
+  }
+}
+
+.thumbnail-image {
+	img {
+		max-width: 100%;
+		display: block;
+	}
+}
+
+
+
+
+
+// Image LIst
+
+.image-list {
+	@extend .nav;
+	margin-left: rem(-1);
+	margin-right: rem(-1);
+	margin-bottom: rem(-2);
+	@include clearfix();
+	li {
+		float: left;
+		padding-left: rem(1);
+		padding-right: rem(1);
+		margin-bottom: rem(2);
+		width: 33.333333%;
+		background-size: contain !important;
+	}
+}
+
+.project-set {
+	.thumbnail-image {
+		ul {
+			li {
+				div {
+					display: block;
+					width: 100%;
+					position: relative;
+					height: 0;
+					padding: 100% 0 0 0;
+					overflow: hidden;
+					background: #fff;
+					img {
+					  position: absolute;
+					  display: block;
+					  max-width: 100%;
+					  max-height: 100%;
+					  left: 0;
+					  right: 0;
+					  top: 0;
+					  bottom: 0;
+					  margin: auto;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+.dashboard-imagelist {
+	@extend .nav;
+	margin-left: rem(-1);
+	margin-right: rem(-1);
+	margin-bottom: rem(-2);
+	@include clearfix();
+	li {
+		float: left;
+		padding-left: rem(1);
+		padding-right: rem(1);
+		margin-bottom: rem(2);
+		width: 33.333333%;
+		background-size: contain !important;
+		div {
+			display: block;
+			width: 100%;
+			position: relative;
+			height: 0;
+			padding: 100% 0 0 0;
+			overflow: hidden;
+			background: #fff;
+			img {
+			  position: absolute;
+			  display: block;
+			  max-width: 100%;
+			  max-height: 100%;
+			  left: 0;
+			  right: 0;
+			  top: 0;
+			  bottom: 0;
+			  margin: auto;
+			}
+		}
+	}
+}
+
+
