@@ -4,7 +4,7 @@ import Login from 'forms/Login'
 
 const Routes = () => (
   <Switch>
-    <Route exact path="/login" component={Login} />
+    <Route exact path="/" render={() => <Login />} />
   </Switch>
 )
 

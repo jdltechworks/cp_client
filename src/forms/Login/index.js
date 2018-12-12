@@ -1,29 +1,27 @@
 import React from 'react'
-import Valign from 'components/ui/wrapper/Valign'
-import LoginBg from 'assets/images/Brand_Bg.png'
+import Wrapper from './Wrapper'
+import { reduxForm, Field } from 'redux-form'
 
-const Login = () => (
-  <div className="main">
-    <div className="login-form">
-      <Valign>
-        <h2>
-          Welcome, login to access
-          <br />the inventory system
-        </h2>
-        <div className="login-panel">
-          <form method="post" target="dummy">
-              <input type="text" className="form-control login-user" name="username" autoComplete="off" />
-              <div className="divider"></div>
-              <input type="password" className="form-control login-pass" name="password" />
-            <button className="btn btn-primary btn-block">ENTER</button>
-          </form>
-        </div>
-      </Valign>
-    </div>
-    <div className="bottom-banner">
-      <img src={LoginBg} alt="Login Background" />
-    </div>
-  </div>
+const Login = ({ handleSubmit }) => (
+  <Wrapper>
+    <form onSubmit={handleSubmit((values) => console.log(values))} target="dummy">
+      <Field
+        name="username"
+        type="text"
+        className="form-control login-user"
+        autoComplete="off" 
+        component="input" />
+      <div className="divider"></div>
+      <Field
+        name="password"
+        type="password"
+        className="form-control login-pass"
+        component="input" />
+      <button className="btn btn-primary btn-block">ENTER</button>
+    </form>
+  </Wrapper>   
 )
 
-export default Login
+export default reduxForm({
+  form: 'login-form'
+})(Login)
