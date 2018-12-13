@@ -1,22 +1,22 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import ProtectedRoutes from './ProtectedRoutes'
-import { Route, Switch, Redirect } from 'react-router-dom'
+import PrivateRoute from './PrivateRoute'
+import { Route, Switch } from 'react-router-dom'
 
 // Components
 import Login from 'forms/Login'
+import Dashboard from 'containers/Dashboard'
+import Manager from 'containers/Manager'
+import Projects from 'containers/Projects'
+import Inventory from 'containers/Inventory'
 
-const Routes = ({ isAuthenticated }) => (
+const Routes = () => (
   <Switch>
-    <Route exact path="/" render={() => (
-      isAuthenticated ? <Redirect to="/dashboard" /> : <Login />
-    )} />
-    <ProtectedRoutes isAuthenticated={isAuthenticated} />
+    <Route exact path="/" component={() => <Login />} />
+    <PrivateRoute exact path="/dashboard" component={Dashboard} />
+    <PrivateRoute exact path="/inventory/:section?/:subsection?" component={Inventory} />
+    <PrivateRoute exact path="/project/:section?/:subsection?" component={Projects} />
+    <PrivateRoute exact path="/manage/:section?" component={Manager} />
   </Switch>
 )
-
-Routes.propTypes = {
-  isAuthenticated: PropTypes.bool.isRequired,
-}
 
 export default Routes
