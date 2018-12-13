@@ -7,7 +7,7 @@ export const initialState = {
 
 const authReducer = handleActions(
   {
-    [types.AUTHENTICATING](state, { payload }) {
+    [types.AUTHENTICATED](state, { payload }) {
       return {
         ...state,
         ...payload
