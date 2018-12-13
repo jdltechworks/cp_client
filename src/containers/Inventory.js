@@ -30,7 +30,6 @@ const Inventory = ({ location }) => {
   }
 }
 
-
 Inventory.propTypes = {
   location: PropTypes.object.isRequired
 }
