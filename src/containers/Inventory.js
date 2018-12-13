@@ -3,10 +3,8 @@ import PropTypes from 'prop-types'
 import { edit, single, create } from 'constants/pageRegex' 
 
 const Wrapper = ({ title }) => (
-  <div className="main">
-    <div className="main-content">
-      {title}
-    </div>
+  <div className="main-content">
+    {title}
   </div>
 )
 

@@ -7,14 +7,14 @@ export const initialState = {
 
 const authReducer = handleActions(
   {
-    [types.AUTHENTICATED](state, { payload }) {
+    [types.AUTHENTICATED](state, { authenticated }) {
       return {
         ...state,
-        ...payload
+        authenticated
       }
     },
   },
   initialState,
-);
+)
 
 export default authReducer

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@jdltechworks/redux-utils": "git+https://github.com/jdltechworks/redux-utils.git",
+    "axios": "^0.18.0",
     "bootstrap-sass": "^3.3.7",
     "font-awesome": "^4.7.0",
     "node-sass": "^4.11.0",

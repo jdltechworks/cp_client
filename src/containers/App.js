@@ -1,13 +1,27 @@
-import React from 'react';
+import React from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import Body from 'components/ui/wrapper/Body'
 import Navbar from 'components/ui/header/Navbar'
-import { connect } from 'react-redux'
 
-const App = ({ children }) => (
+const App = ({ children, authenticated, }) => (
   <Body>
     <Navbar />
-    {children}
+    <div className="main">
+      {children(authenticated)}
+    </div>
   </Body>
 )
 
-export default connect(state => state)(App)
+App.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array,
+    PropTypes.func,
+  ]).isRequired,
+  isAuthenticated: PropTypes.bool
+}
+
+export default connect(({ auth }) => ({
+  authenticated: auth.authenticated,
+}))(App)

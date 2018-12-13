@@ -1,27 +1,18 @@
 import React, { Fragment } from 'react'
 import { Route, Redirect } from 'react-router-dom'
-import PropTypes from 'prop-types'
+
 
 import Inventory from 'containers/Inventory'
 import Projects from 'containers/Projects'
 import Dashboard from 'containers/Dashboard'
 import Manager from 'containers/Manager'
 
-const ProtectedRoutes = ({ isAuthenticated }) => (
+const ProtectedRoutes = ({ isAuthenticated, ...rest }) => (
   <Fragment>
-    {isAuthenticated ? (
-      <Fragment>
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/inventory/:section?/:subsection?" component={Inventory} />
-        <Route exact path="/project/:section?/:subsection?" component={Projects} />
-        <Route exact path="/manage/:section?" component={Manager} />
-      </Fragment>) : 
-      (<Redirect to="/" />)}
+    <Route exact path="/dashboard" render={(props) => isAuthenticated ? <Dashboard {...props} /> : <Redirect to="/" />} />
+    <Route exact path="/inventory/:section?/:subsection?" component={Inventory} />
+    <Route exact path="/project/:section?/:subsection?" component={Projects} />
+    <Route exact path="/manage/:section?" component={Manager} />
   </Fragment>
 )
-
-ProtectedRoutes.propTypes = {
-  isAuthenticated: PropTypes.bool.isRequired,
-}
-
 export default ProtectedRoutes

@@ -8,8 +8,10 @@ import Routes from 'routes'
 const Client = () => (
   <Provider store={store}>
     <Router>
-      <App>
-        <Routes isAuthenticated={true} />
+      <App>{
+        (authenticated) => <Routes isAuthenticated={authenticated} />
+      }
+        
       </App>
     </Router>
   </Provider>
