@@ -9,7 +9,7 @@ import Manager from 'containers/Manager'
 import Projects from 'containers/Projects'
 import Inventory from 'containers/Inventory'
 
-const Routes = () => (
+const Routes = (authenticated) => (
   <Switch>
     <Route exact path="/" component={() => <Login />} />
     <PrivateRoute exact path="/dashboard" component={Dashboard} />

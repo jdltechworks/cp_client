@@ -1,16 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import Body from 'components/ui/wrapper/Body'
 import Navbar from 'components/ui/header/Navbar'
+const App = ({ children, authenticated }) => {
+  console.log(authenticated)
+  return (
+    <Body>
+      <Navbar />
+      <div className="main">
+        {children(authenticated)}
+      </div>
+    </Body>
+  )
+}
 
-const App = ({ children, }) => (
-  <Body>
-    <Navbar />
-    <div className="main">
-      {children}
-    </div>
-  </Body>
-)
+
+
 
 App.propTypes = {
   children: PropTypes.oneOfType([
@@ -20,4 +26,6 @@ App.propTypes = {
   ]).isRequired,
 }
 
-export default App
+export default connect(({ auth }) => ({
+  authenticated: auth.authenticated,
+}))(App)

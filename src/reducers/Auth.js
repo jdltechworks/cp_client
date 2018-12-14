@@ -7,10 +7,11 @@ export const initialState = {
 
 const authReducer = handleActions(
   {
-    [types.AUTHENTICATED](state, { authenticated }) {
+    [types.AUTHENTICATED](state, { authenticated, authToken }) {
       return {
         ...state,
-        authenticated
+        authenticated,
+        authToken,
       }
     },
   },

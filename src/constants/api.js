@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseUrl: '',
+  baseURL: process.env.REACT_APP_REST_API,
 })
 
 export default api

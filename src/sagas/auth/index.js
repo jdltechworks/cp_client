@@ -4,11 +4,17 @@ import { authenticateUser } from 'services/Auth'
 
 function* Login({ payload }) {
   try {
-    const authResponse = yield call(authenticateUser, { ...payload })
-    console.log(authResponse)
-    yield put({ type: types.AUTHENTICATED, authenticated: true })
+    const { data } = yield call(
+      authenticateUser,
+      { ...payload }
+    )
+    yield put({
+      type: types.AUTHENTICATED,
+      authenticated: true,
+      authToken: data.key
+    })
   } catch ({ response }) {
-    console.log(response)
+    console.log(response.data)
   }
 }
 
