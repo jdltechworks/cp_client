@@ -9,7 +9,7 @@ const Client = () => (
   <Provider store={store}>
     <Router>
       <App>
-        {authenticated => <Routes authenticated={authenticated}/>}
+        <Routes />
       </App>
     </Router>
   </Provider>

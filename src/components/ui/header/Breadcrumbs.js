@@ -1,22 +1,20 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
-import Hamburger from 'components/ui/Button/Hamburger'
 
-const Breadcrumbs = ({ title, subtitle }) => (
-  <div class="navbar-header">
-    <Hamburger onClick={() => {}}/>
-    <a href="/" class="navbar-brand"></a>
-    <div class="navbar-path">
-      <span class="navbar-title">{title}</span>
-      <span> : </span>
-      <span class="">{subtitle}</span>
-    </div>
+const Breadcrumbs = ({ section, subsection }) => (
+  <div className="navbar-path">
+    <span className="navbar-title">{section}</span>
+    {subsection && 
+      <Fragment>
+        <span> : </span> <span className="">{subsection}</span>
+      </Fragment>
+    }
   </div>
 )
 
 Breadcrumbs.propTypes = {
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
+  section: PropTypes.string.isRequired,
+  subsection: PropTypes.string,
 }
 
 export default Breadcrumbs

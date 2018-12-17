@@ -1,19 +1,19 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import Body from 'components/ui/wrapper/Body'
+import Menu from 'components/ui/Menu'
 import Navbar from 'components/ui/header/Navbar'
-const App = ({ children, authenticated }) => {
-  console.log(authenticated)
-  return (
-    <Body>
-      <Navbar />
-      <div className="main">
-        {children(authenticated)}
-      </div>
-    </Body>
-  )
-}
+import { withRouter } from 'react-router'
+const App = ({ children, authenticated }) => (
+  <Body>
+    <Navbar menu={authenticated} />
+    {authenticated && <Menu />}
+    <div className="main">
+      {children}
+    </div>
+  </Body>
+)
 
 
 
@@ -26,6 +26,8 @@ App.propTypes = {
   ]).isRequired,
 }
 
-export default connect(({ auth }) => ({
-  authenticated: auth.authenticated,
-}))(App)
+const mapStateToProps = ({ auth }) => ({
+  authenticated: auth.authenticated
+})
+
+export default withRouter(connect(mapStateToProps)(App))
