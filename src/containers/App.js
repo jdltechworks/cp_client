@@ -1,13 +1,18 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import Body from 'components/ui/wrapper/Body'
-import Menu from 'components/ui/Menu'
-import Navbar from 'components/ui/header/Navbar'
+import Body from 'components/wrapper/Body'
+import Menu from 'components/Menu'
+import Navbar from 'components/header/Navbar'
 import { withRouter } from 'react-router'
+import bodyToggle from 'utils/bodyToggle'
+
 const App = ({ children, authenticated }) => (
   <Body>
-    <Navbar menu={authenticated} />
+    <Navbar menu={authenticated}
+      headerClassName={`header ${authenticated ? 'logged-in' : 'logged-out'}`}
+      onClick={bodyToggle}
+    />
     {authenticated && <Menu />}
     <div className="main">
       {children}

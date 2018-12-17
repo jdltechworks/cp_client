@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Valign from 'components/ui/wrapper/Valign'
+import Valign from 'components/wrapper/Valign'
 import LoginBg from 'assets/images/Brand_Bg.png'
 
 export const Wrapper = ({ children }) => (
